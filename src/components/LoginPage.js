@@ -12,11 +12,11 @@ const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [alert, setAlert] = useState({ message: '', error: false })
-  const { setCookies } = useContext(myContext);
+  const { setCookies, url } = useContext(myContext);
   const newAccount = useRef({})
 
   const handleLogin = () => {
-    fetch('http://localhost:3001/login', {
+    fetch(`${url}/login`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -37,7 +37,7 @@ const LoginPage = () => {
   }
 
   const handleRegister = () => {
-    fetch('http://localhost:3001/register', {
+    fetch(`${url}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

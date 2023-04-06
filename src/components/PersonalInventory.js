@@ -4,14 +4,14 @@ import { myContext } from '../App'
 
 const PersonalInventory = () => {
   const [items, setItems] = useState([]);
-  const { cookies } = useContext(myContext);
+  const { cookies , url} = useContext(myContext);
   
   useEffect(() => {
     getItems();
   }, [])
 
   const getItems = () => {
-    fetch(`http://localhost:3001/items/${cookies.auth}`)
+    fetch(`${url}/items/${cookies.auth}`)
       .then(res => res.json())
       .then(data => {
         setItems(data);

@@ -1,12 +1,14 @@
 import React, { useState, useRef } from 'react'
 import '../stylesheets/ItemDetails.css'
+import { useContext } from 'react'
 
 const ItemDetails = ({ item, setDetails, userId, handleDelete, getItems}) => {
   const [edit, setEdit] = useState(false);
+  const {url} = useContext(myContext);
   const editedItem = useRef({id: item.id, userId: userId, name: item.name, description: item.description, quantity: item.quantity });
 
   const handleEdit = () => {
-    fetch(`http://localhost:3001/items`, {
+    fetch(`${url}/items`, {
       method: 'PATCH',
       credentials: 'include',
       headers: {

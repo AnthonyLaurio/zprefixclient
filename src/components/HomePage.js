@@ -3,9 +3,10 @@ import ItemTable from './ItemTable';
 
 const HomePage = () => {
   const [items, setItems] = React.useState([]);
+  const { url } = React.useContext(myContext);
 
   useEffect(() => {
-    fetch('http://localhost:3001/items')
+    fetch(`${url}/items`)
       .then(res => res.json())
       .then(data => {
         setItems(data);

@@ -7,10 +7,10 @@ import cookie from 'cookie'
 
 const NavBar = () => {
   const navigate = useNavigate()
-  const { cookies , setCookies} = useContext(myContext);
+  const { cookies , setCookies, url} = useContext(myContext);
 
   const handleLogout = () => {
-    fetch('http://localhost:3001/logout', {
+    fetch(`${url}/logout`, {
       method: 'GET',
       credentials: 'include',
       headers: {

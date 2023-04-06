@@ -2,13 +2,15 @@ import React, { useRef, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import '../stylesheets/ItemTable.css'
 import ItemDetails from './ItemDetails';
+import { myContext } from '../App';
 
 const ItemTable = ({ items, userId, getItems }) => {
   const itemRef = useRef({ userId: userId, name: '', quantity: '', description: '' });
+  const { url } = useContext(myContext);
   const [details, setDetails] = useState({});
 
   const handleAdd = () => {
-    fetch(`http://localhost:3001/items/`, {
+    fetch(`${url}/items/`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -24,7 +26,7 @@ const ItemTable = ({ items, userId, getItems }) => {
   }
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/items/${id}`, {
+    fetch(`${url}/items/${id}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {

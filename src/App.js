@@ -9,10 +9,11 @@ export const myContext = createContext();
 
 function App() { 
   const [cookies, setCookies] = useState(cookie.parse(document.cookie));
+  const [url, setUrl] = useState('https://zprefixserver.onrender.com');
 
   return (
     <div className="App vh-100 vw-100">
-      <myContext.Provider value={{cookies, setCookies}}>
+      <myContext.Provider value={{cookies, setCookies, url}}>
       <header className="App-header bg-secondary">
         <NavBar />
       </header>

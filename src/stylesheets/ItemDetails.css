@@ -1,0 +1,21 @@
+.details-box{
+  position: fixed;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  margin-top: -25%;
+  margin-left: -25%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-radius: 10px;
+}
+.details-button{
+  width: 25%;
+}
+.details-description{
+  width: 60%;
+  word-wrap: break-word;
+}
+.text-description{
+  border-radius: 5px;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import '../stylesheets/ItemDetails.css'
 import { useContext } from 'react'
+import { myContext } from '../App'
 
 const ItemDetails = ({ item, setDetails, userId, handleDelete, getItems}) => {
   const [edit, setEdit] = useState(false);
